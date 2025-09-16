@@ -1,5 +1,5 @@
 # Use Fedora 41 image
-FROM fedora:41
+FROM fedora:42
 
 # Install lorax
 RUN dnf install -y lorax && dnf clean all
