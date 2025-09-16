@@ -10,7 +10,7 @@ This repository contains scripts and instructions for creating an ISO image of R
 # Creating the ISO image
 
 - Option 1: Create the ISO image yourself
-  - Download the ISO image from the site: [Rocky Linux Download](https://rockylinux.org/download)
+  - Download the boot ISO image from the site: [Rocky Linux Download](https://rockylinux.org/download)
   - Build the container file with the following command:
      ```sh
      buildah build -t ns8-boxbuilder .

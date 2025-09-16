@@ -21,7 +21,7 @@ jobs:
       run: |
         ROCKY_VERSION=${GITHUB_REF#refs/tags/rocky-}
         echo "ROCKY_VERSION=${GITHUB_REF#refs/tags/rocky-}" >> $GITHUB_ENV
-        wget -nv -O rocky.iso https://download.rockylinux.org/pub/rocky/${ROCKY_VERSION}/isos/x86_64/Rocky-${ROCKY_VERSION}-x86_64-minimal.iso
+        wget -nv -O rocky.iso https://download.rockylinux.org/pub/rocky/${ROCKY_VERSION}/isos/x86_64/Rocky-${ROCKY_VERSION}-x86_64-boot.iso
 
     - name: Build container
       run: |
