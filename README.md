@@ -1,5 +1,15 @@
 This repository contains scripts and instructions for creating an ISO image of Rocky Linux modified for the installation of NethServer 8, which includes NethVoice. The goal of this repository is to provide an image that can be used for appliances, which will serve as the leader node of a cluster (ideally a single-node cluster).
 
+:warning: **Warning: some limitations apply** 
+
+1. This procedure will not work with Rocky 9.6 because:
+ - the minimal ISO is greater than 2GB, which is the limit for Github Actions files inside a release
+ - if using the boot ISO, the installation will fail because of missing packages (executing `dnf makecache` in the %pre section does not work)
+
+2. When using this image on a already installed machine, depending on the BIOS configuration, the ISO could show a menu where the auto-install option
+is not available. In this case, try to force the BIOS to boot the UEFI ISO content.
+
+
 # Pre-requisites
 
 - Internet connection
@@ -10,7 +20,7 @@ This repository contains scripts and instructions for creating an ISO image of R
 # Creating the ISO image
 
 - Option 1: Create the ISO image yourself
-  - Download the boot ISO image from the site: [Rocky Linux Download](https://rockylinux.org/download)
+  - Download the *minimal* ISO image from the site: [Rocky Linux Download](https://rockylinux.org/download)
   - Build the container file with the following command:
      ```sh
      buildah build -t ns8-boxbuilder .
